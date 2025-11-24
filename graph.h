@@ -5,17 +5,31 @@
 #include <fstream>
 #include <sstream>
 #include <unordered_set>
+#include <map>
 using namespace std;
 
 struct Vertex
 {
     string name;
+    string city;
     vector<int> connections;
 
     Vertex() {}
-    Vertex(string name) : name(name) {}
-    Vertex(string name, vector<int> c) : name(name), connections(c) {}
+    Vertex(string name, string city = "") : name(name), city(city) {}
 };
+
+// Example: assign a color to each city
+map<string, string> cityColors = {
+    {"Karachi", "lightblue"},
+    {"Lahore", "lightgreen"},
+    {"Islamabad", "lightpink"},
+    {"Rawalpindi", "yellow"},
+    {"Faisalabad", "orange"},
+    {"Multan", "violet"},
+    {"Hyderabad", "cyan"},
+    {"Gujranwala", "gold"},
+    {"Sialkot", "magenta"},
+    {"Quetta", "salmon"}};
 
 class Graph
 {
@@ -31,19 +45,17 @@ public:
         resetExplored();
     }
 
-
     void resetExplored()
     {
         for (int i = 0; i < 100; i++)
             explored[i] = false;
     }
 
-    void addVertex(int index, string name)
+    void addVertex(int index, const string &name, const string &city = "")
     {
         if (index < 0 || index >= 100)
             return;
-
-        graph[index] = Vertex(name);
+        graph[index] = Vertex(name, city);
         exists[index] = true;
     }
 
@@ -59,37 +71,33 @@ public:
     //          DFS
     // ----------------------------------------------------------
 
-    bool DFS(int start, int target)
+    void DFS(int start, int target)
     {
-        resetExplored();
+        bool explored[101] = {false};
         cout << "Path: ";
-        bool found = dfsRecursive(start, target);
+        if (!dfsRecursive(start, target, explored))
+            cout << "No path found";
         cout << endl;
-        return found;
     }
 
-
 private:
-    bool dfsRecursive(int current, int target)
+    bool dfsRecursive(int current, int target, bool explored[])
     {
         if (!exists[current])
             return false;
-
         if (current == target)
         {
-            cout << "<-- " << graph[current].name;
+            cout << "<-- " << graph[current].name << "(" << graph[current].city << ")";
             return true;
         }
-
         explored[current] = true;
-
-        for (int neighbor : graph[current].connections)
+        for (int n : graph[current].connections)
         {
-            if (!explored[neighbor])
+            if (!explored[n])
             {
-                if (dfsRecursive(neighbor, target))
+                if (dfsRecursive(n, target, explored))
                 {
-                    cout << "<-- " << graph[current].name;
+                    cout << "<-- " << graph[current].name << "(" << graph[current].city << ")";
                     return true;
                 }
             }
@@ -103,44 +111,61 @@ public:
     // ----------------------------------
     vector<int> mutualFriends(int u, int v)
     {
-        vector<int> result;
-
+        vector<int> mutual;
         if (!exists[u] || !exists[v])
-            return result;
+            return mutual;
 
-        unordered_set<int> friendSet(graph[u].connections.begin(),
-                                     graph[u].connections.end());
+        bool isFriend[101] = {false};
+        for (int f : graph[u].connections)
+            isFriend[f] = true;
 
         for (int f : graph[v].connections)
-        {
-            if (friendSet.count(f))
-                result.push_back(f);
-        }
+            if (isFriend[f])
+                mutual.push_back(f);
 
-        return result;
+        return mutual;
     }
 
     // ----------------------------------
     //      EXPORT TO GRAPHVIZ
     // ----------------------------------
-    void exportToGraphviz(const string &filename)
-    {
-        ofstream out(filename);
-        out << "graph G {\n";
+    void exportToGraphviz(const string &filename, map<string,string> &cityColors)
+{
+    ofstream out(filename);
+    out << "graph G {\n";
+    out << "  node [shape=box, style=filled, fontname=\"Arial\"];\n";
 
-        for (int i = 1; i <= 100; i++)
-        {
-            if (!exists[i])
-                continue;
+    for (int i = 1; i <= 100; i++) {
+        if (!exists[i]) continue;
+        string nodeID = "User_" + to_string(i);
+        string color = "white";
+        if (!graph[i].city.empty() && cityColors.count(graph[i].city))
+            color = cityColors[graph[i].city];
 
-            for (int f : graph[i].connections)
-            {
-                if (i < f) // avoid duplicate edges
-                    out << "  " << i << " -- " << f << ";\n";
+        string label = "<"
+            "<TABLE BORDER=\"0\" CELLBORDER=\"1\" CELLSPACING=\"0\" BGCOLOR=\"" + color + "\">"
+            "<TR><TD>" + graph[i].name + "</TD></TR>"
+            "<TR><TD>" + graph[i].city + "</TD></TR>"
+            "<TR><TD>#Friends: " + to_string(graph[i].connections.size()) + "</TD></TR>"
+            "</TABLE>>";
+
+        out << "  \"" << nodeID << "\" [label=" << label << "];\n";
+    }
+
+    // edges
+    for (int i = 1; i <= 100; i++) {
+        if (!exists[i]) continue;
+        string nodeA = "User_" + to_string(i);
+        for (int f : graph[i].connections) {
+            if (i < f) {
+                string nodeB = "User_" + to_string(f);
+                out << "  \"" << nodeA << "\" -- \"" << nodeB << "\";\n";
             }
         }
-
-        out << "}\n";
-        out.close();
     }
+
+    out << "}\n";
+    out.close();
+}
+
 };
