@@ -1,8 +1,28 @@
-# Social-Networking-App-
-A cpp implementation of how social networking apps are created and on what data structures they are based mostly graphs , linked lists , maps , jagged arrays etc . This is the part of our DSA Project and it will be implemented as an app using Sfml in cpp. This project is built to understand the working of data structures in depth and to get an understanding of how data structures are used to solve real world problems.
+# C++ Social Networking Simulator
+## Overview
+A console-based social networking simulator built in C++ that models the core functionalities of popular social platforms like Facebook. Users can interact with friends, post updates, view profiles, and simulate basic social networking operations.
+## ✨Featues
+* User Accounts: Create and manage multiple users.
+* Friend System: Add, view, and interact with friends.
+* Posts: Create, view, like, and comment on posts.
+* Profiles: View your profile or friends’ profiles.
+* Navigation: Switch between users and friends seamlessly.
+* Mutual Friends: Display mutual friends when viewing other profiles.
+* Login & Logout: Basic authentication simulation for multiple users.
+## 🛠️Requirements
+* Visual Studio or VS Code
+* SFML Library Installed
+* Powershell Access
+* Windows / Linux / MacOs
+## ❓Usage
+* Login as an existing user or create a new account.
+* Add friends to build your social network.
+* Create posts and view them on your profile or friends’ profiles.
+* Like or comment on posts to simulate interactions.
+* Navigate between different user profiles by selecting avatars.
+* Logout when finished
+## 👥Team
+* Fasih Ahmed
+* Raed Ovais
+* Muhammad Saad Tahir
 
-features:
--display undirected graph for a user(2 traversals max)
--Calculate degree,centrality,and clustering coefficient for a user
--Display shortest path from user A to user B
--Display Mutual Connections Between User A and User B
