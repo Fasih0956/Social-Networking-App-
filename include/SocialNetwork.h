@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include "Graph.h"
 #include "Parser.h"
@@ -9,11 +10,11 @@ public:
     Graph g;
     int nextPostID = 1;
 
-    void loadData()
+    void loadData(const string& assetPath = "assets/")
     {
-        auto names = Parser::loadNames("../assets/names.txt");
-        auto cities = Parser::loadCities("../assets/cities.txt");
-        auto adj = Parser::loadAdjList("../assets/friends.txt");
+        auto names = Parser::loadNames(assetPath + "names.txt");
+        auto cities = Parser::loadCities(assetPath + "cities.txt");
+        auto adj = Parser::loadAdjList(assetPath + "friends.txt");
 
         // add users
         for(auto &p:names)
@@ -34,14 +35,8 @@ public:
         auto &u=g.users[id];
         cout<<"User "<<id<<": "<<u.name<<" ("<<u.city<<")\n";
         cout<<"Friends: "; for(int f:u.friends) cout<<f<<" "; cout<<endl;
-        cout<<"Followers: "; for(int f:u.followers) cout<<f<<" "; cout<<endl;
-        cout<<"Following: "; for(int f:u.following) cout<<f<<" "; cout<<endl;
-        cout<<"Posts:\n";
-        for(auto &p:u.posts)
-        {
-            cout<<"["<<p.id<<"] "<<p.content<<" Likes: "<<p.likes<<" Comments: "<<p.comments.size()<<"\n";
-        }
-        cout<<"Degree: "<<g.degree(id)<<" Clustering: "<<g.clusteringCoefficient(id)<<" Influence: "<<g.influenceScore(id)<<endl;
+        cout<<"Degree: "<<g.degree(id)<<endl;
+        cout<<"Clustering Coefficient: "<<g.clusteringCoefficient(id)<<endl;
+        cout<<"Influence Score: "<<g.influenceScore(id)<<endl;
     }
-
 };

@@ -17,7 +17,7 @@ void loadTextures()
     textures.push_back(sf::Texture("assets/network_hover.png"));
     textures.push_back(sf::Texture("assets/restart_button.png"));
     textures.push_back(sf::Texture("assets/restart_button_hover.png"));
-    textures.push_back(sf::Texture("include/graph.png"));
+    textures.push_back(sf::Texture("assets/graph.png"));
     for(auto& element:textures)sprites.push_back(sf::Sprite(element)); 
 }
 

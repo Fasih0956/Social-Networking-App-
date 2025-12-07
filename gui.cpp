@@ -4,6 +4,7 @@
 #include "button.h"
 #include "textbox.h"
 #include "include/includes.h"
+#include "include/SocialNetwork.h"
 
 int user1id=-1;
 int user2id=-1;
@@ -62,8 +63,9 @@ bool shortestPath(sf::RenderWindow& window)
     header.setPosition({width*0.2,0});
     header.setFillColor(sf::Color(0,0,0));
     RestartButton b1(window,{0,0});
-    sf::Sprite& graph=sprites[8];
-    graph.setPosition({width*.2,height*.3});
+    sf::Sprite graph(textures[8]);
+    graph.setPosition({width*.4,height*.3});
+    graph.setScale({0.4,0.4});
     while (window.isOpen())
     {
         while (const std::optional event = window.pollEvent())
@@ -75,8 +77,8 @@ bool shortestPath(sf::RenderWindow& window)
 
         window.clear(sf::Color(255,255,255));
         b1.draw();
-        window.draw(graph);
         window.draw(header);
+        window.draw(graph);
         window.display();
     }
     return 0;
@@ -92,7 +94,9 @@ bool userInfo(sf::RenderWindow& window,string stats)
     userInfo.scale({0.5,1.5});
     userInfo.setPosition({width*0.5,height*0.9});
     userInfo.setFillColor(sf::Color(134,12,49));
-    sf::Sprite& graph=sprites[8];
+    sf::Sprite graph(textures[8]);
+    graph.setPosition({width*.4,height*.3});
+    graph.setScale({0.4,0.4});
     if(!window.isOpen())window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
     RestartButton b1(window,{0,0});
     while (window.isOpen())
@@ -122,8 +126,9 @@ bool mutualFriends(sf::RenderWindow& window)
     header.setPosition({width*0.2,0});
     header.setFillColor(sf::Color(0,0,0));
     RestartButton b1(window,{0,0});
-    sf::Sprite& graph=sprites[8];
-    graph.setPosition({width*.2,height*.3});
+    sf::Sprite graph(textures[8]);
+    graph.setPosition({0,height*.3});
+    //graph.setScale({0.5,2});
     while (window.isOpen())
     {
         while (const std::optional event = window.pollEvent())
@@ -135,8 +140,8 @@ bool mutualFriends(sf::RenderWindow& window)
 
         window.clear(sf::Color(255,255,255));
         b1.draw();
-        window.draw(graph);
         window.draw(header);
+        window.draw(graph);
         window.display();
     }
     return 0;
@@ -150,23 +155,37 @@ int main()
     window.setVerticalSyncEnabled(true);
     loadTextures();
     scaleSprites();
+    SocialNetwork sn;
+    sn.loadData();
     while(true)
     {
     int option=StartScreen(window);
     if(!option)return 0;
     if(option==1)
     {
-        createShortestPath(user1id,user2id);
+        createShortestPath(sn.g,user1id,user2id);
+        bool success=textures[8].loadFromFile("assets/graph.png");
+        textures[8].setSmooth(true);
+        if(!success)cout<<"texture not loaded";
+        else cout<<"texture loaded";
         if(!shortestPath(window))return 0;
     }
     if(option==2)
     {
-        string stats=generateStatistics(user1id);
+        string stats=generateStatistics(sn.g,user1id);
+        bool success=textures[8].loadFromFile("assets/graph.png");
+        textures[8].setSmooth(true);
+        if(!success)cout<<"texture not loaded";
+        else cout<<"texture loaded";
         if(!userInfo(window,stats))return 0;
     }
     if(option==3)
     {
-        createMutualConnectionsGraph(user1id,user2id);
+        mutualConnectionGraph(sn.g,user1id,user2id);
+        bool success=textures[8].loadFromFile("assets/graph.png");
+        textures[8].setSmooth(true);
+        if(!success)cout<<"texture not loaded";
+        else cout<<"texture loaded";
         if(!mutualFriends(window))return 0;
     }
     }

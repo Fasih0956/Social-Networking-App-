@@ -1,31 +1,40 @@
 #pragma once
 #include <string>
+#include "Graphviz.h"
+#include "Graph.h"
 
-/*
-*******
-*/
-#define createImage system("dot -Tpng include/graph.dot -o graph.png");
+// Simple wrapper functions for graph visualization
+// These match the proposal requirements
 
-void createShortestPath(int id1,int id2) //overwrite graph.dot
+void createGraph(Graph& g, int id1, const std::string& outputFile = "assets/graph.dot")
 {
- /*******************************************************/
- createImage;
+    Graphviz::createGraph(g, id1, outputFile);
+    Graphviz::createImage(outputFile);
 }
 
-void createMutualConnectionsGraph(int id1,int id2) //overwrite graph.dot
+void createShortestPath(Graph& g, int id1, int id2, const std::string& outputFile = "assets/graph.dot")
 {
- /*******************************************************/
- createImage;
+    Graphviz::createShortestPath(g, id1, id2, outputFile);
+    Graphviz::createImage(outputFile);
 }
 
-void createGraph(int id1) //overwrite graph.dot //for 2 traversals(starting from id1)
+void mutualConnectionGraph(Graph& g, int id1, int id2, const std::string& outputFile = "assets/graph.dot")
 {
- /*******************************************************/
- createImage;
+    Graphviz::mutualConnectionGraph(g, id1, id2, outputFile);
+    Graphviz::createImage(outputFile);
 }
 
-std::string generateStatistics(int id1)
+std::string generateStatistics(Graph& g, int id1)
 {
-    /*******************************************************/
-    return "Degree: 26 Clustering: 0.430769 Influence: 99";
+    if (g.users.find(id1) == g.users.end()) {
+        return "User not found";
+    }
+    
+    int deg = g.degree(id1);
+    double clustering = g.clusteringCoefficient(id1);
+    int influence = g.influenceScore(id1);
+    
+    return "Degree: " + std::to_string(deg) + 
+           " Clustering: " + std::to_string(clustering) + 
+           " Influence: " + std::to_string(influence);
 }
