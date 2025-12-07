@@ -3,6 +3,7 @@
 #include <iostream>
 #include "button.h"
 #include "textbox.h"
+#include "include/includes.h"
 
 int user1id=-1;
 int user2id=-1;
@@ -52,7 +53,7 @@ int StartScreen(sf::RenderWindow& window)
 bool shortestPath(sf::RenderWindow& window)
 {
     window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
-    RestartButton b1(window,{width*.1,height*.1});
+    RestartButton b1(window,{0,0});
     sf::Sprite& graph=sprites[8];
     graph.setPosition({width*.2,height*.3});
     while (window.isOpen())
@@ -72,10 +73,15 @@ bool shortestPath(sf::RenderWindow& window)
     return 0;
 }
 
-bool userInfo(sf::RenderWindow& window)
+bool userInfo(sf::RenderWindow& window,string stats)
 {
+    sf::Text userInfo(dodot,stats);
+    userInfo.scale({0.5,1.5});
+    userInfo.setPosition({width*0.3,0});
+    userInfo.setFillColor(sf::Color(134,12,49));
+    sf::Sprite& graph=sprites[8];
     window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
-    RestartButton b1(window,{width*.1,height*.1});
+    RestartButton b1(window,{0,0});
     while (window.isOpen())
     {
         while (const std::optional event = window.pollEvent())
@@ -85,8 +91,10 @@ bool userInfo(sf::RenderWindow& window)
             //sf::sleep(sf::milliseconds(30));
         }
 
-        window.clear(sf::Color(128,128,128));
+        window.clear(sf::Color(255,255,255));
         b1.draw();
+        window.draw(userInfo);
+        window.draw(graph);
         window.display();
     }
     return 0;
@@ -95,7 +103,7 @@ bool userInfo(sf::RenderWindow& window)
 bool mutualFriends(sf::RenderWindow& window)
 {
     window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
-    RestartButton b1(window,{width*.1,height*.1});
+    RestartButton b1(window,{0,0});
     sf::Sprite& graph=sprites[8];
     graph.setPosition({width*.2,height*.3});
     while (window.isOpen())
@@ -126,9 +134,21 @@ int main()
     {
     int option=StartScreen(window);
     if(!option)return 0;
-    if(option==1)if(!shortestPath(window))return 0;
-    if(option==2)if(!userInfo(window))return 0;
-    if(option==3)if(!mutualFriends(window))return 0;
+    if(option==1)
+    {
+        createShortestPath(user1id,user2id);
+        if(!shortestPath(window))return 0;
+    }
+    if(option==2)
+    {
+        string stats=generateStatistics(user1id);
+        if(!userInfo(window,stats))return 0;
+    }
+    if(option==3)
+    {
+        createMutualConnectionsGraph(user1id,user2id);
+        if(!mutualFriends(window))return 0;
+    }
     }
     return 0;
 }

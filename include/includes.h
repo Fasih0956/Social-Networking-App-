@@ -4,7 +4,7 @@
 /*
 *******
 */
-#define createImage system("dot -Tpng graph.dot -o graph.png");
+#define createImage system("dot -Tpng include/graph.dot -o graph.png");
 
 void createShortestPath(int id1,int id2) //overwrite graph.dot
 {
@@ -12,7 +12,7 @@ void createShortestPath(int id1,int id2) //overwrite graph.dot
  createImage;
 }
 
-void mutualConnectionGraph(int id1,int id2) //overwrite graph.dot
+void createMutualConnectionsGraph(int id1,int id2) //overwrite graph.dot
 {
  /*******************************************************/
  createImage;
