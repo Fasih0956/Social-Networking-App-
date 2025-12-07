@@ -172,6 +172,7 @@ int main()
     }
     if(option==2)
     {
+        //createGraph(sn.g,user1id);
         string stats=generateStatistics(sn.g,user1id);
         bool success=textures[8].loadFromFile("assets/graph.png");
         textures[8].setSmooth(true);

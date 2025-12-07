@@ -13,7 +13,7 @@ class Graphviz
 {
 public:
     // Generate DOT file for graph with up to 2 traversals from a starting user
-    static void createGraph(Graph& g, int startId, const string& outputFile = "assets/graph2t.dot")
+    static void createGraph(Graph& g, int startId, const string& outputFile = "assets/graph.dot")
     {
         ofstream file(outputFile);
         if (!file) {
