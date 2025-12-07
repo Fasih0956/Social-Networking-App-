@@ -17,6 +17,7 @@ void loadTextures()
     textures.push_back(sf::Texture("assets/network_hover.png"));
     textures.push_back(sf::Texture("assets/restart_button.png"));
     textures.push_back(sf::Texture("assets/restart_button_hover.png"));
+    textures.push_back(sf::Texture("include/graph.png"));
     for(auto& element:textures)sprites.push_back(sf::Sprite(element)); 
 }
 
@@ -30,6 +31,7 @@ void scaleSprites()
     sprites[5].scale({0.3,0.3});
     sprites[6].scale({10,10});
     sprites[7].scale({10,10});
+    sprites[8].scale({1,1});
 }
 
 class Button

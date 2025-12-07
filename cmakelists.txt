@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 20)
 add_definitions(-DSFML_STATIC)
 
 # --- SFML Path Configuration ---
-set(SFML_DIR "C:/Users/Raedo/Documents/dev/compilers/sfml") # insert path
+set(SFML_DIR "") # insert path
 set(SFML_INCLUDE_DIR "${SFML_DIR}/include")
 set(SFML_LIBRARY_DIR "${SFML_DIR}/lib")
 

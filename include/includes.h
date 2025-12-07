@@ -4,7 +4,7 @@
 /*
 *******
 */
-#define createImage system("dot -Tpng mygraph.dot -o mygraph.png");
+#define createImage system("dot -Tpng graph.dot -o graph.png");
 
 void createShortestPath(int id1,int id2) //overwrite graph.dot
 {

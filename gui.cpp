@@ -17,8 +17,8 @@ int StartScreen(sf::RenderWindow& window)
     SearchButton b1(window,{width*.4,height*.2});
     BookButton b2(window,{width*.4,height*.4});
     NetworkButton b3(window,{width*.4,height*.6});
-    TextBox b4(window,{width*.4,height*.8},"User 1 ID:");
-    TextBox b5(window,{width*.4,height*.85},"User 2 ID:");
+    TextBox b4(window,{width*.4,height*.8},"User 1 ID:",user1id);
+    TextBox b5(window,{width*.4,height*.85},"User 2 ID:",user2id);
     while (window.isOpen())
     {
         while (const std::optional event = window.pollEvent())
@@ -53,6 +53,8 @@ bool shortestPath(sf::RenderWindow& window)
 {
     window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
     RestartButton b1(window,{width*.1,height*.1});
+    sf::Sprite& graph=sprites[8];
+    graph.setPosition({width*.2,height*.3});
     while (window.isOpen())
     {
         while (const std::optional event = window.pollEvent())
@@ -62,8 +64,9 @@ bool shortestPath(sf::RenderWindow& window)
             //sf::sleep(sf::milliseconds(30));
         }
 
-        window.clear(sf::Color(128,128,128));
+        window.clear(sf::Color(255,255,255));
         b1.draw();
+        window.draw(graph);
         window.display();
     }
     return 0;
@@ -93,6 +96,8 @@ bool mutualFriends(sf::RenderWindow& window)
 {
     window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
     RestartButton b1(window,{width*.1,height*.1});
+    sf::Sprite& graph=sprites[8];
+    graph.setPosition({width*.2,height*.3});
     while (window.isOpen())
     {
         while (const std::optional event = window.pollEvent())
@@ -102,8 +107,9 @@ bool mutualFriends(sf::RenderWindow& window)
             //sf::sleep(sf::milliseconds(30));
         }
 
-        window.clear(sf::Color(128,128,128));
+        window.clear(sf::Color(255,255,255));
         b1.draw();
+        window.draw(graph);
         window.display();
     }
     return 0;

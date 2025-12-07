@@ -11,16 +11,18 @@ class TextBox
   sf::Text display;
   std::string buffer;
   std::string placeholder;
-  int val=-1;
+  int val;
   int clock=0;
   public:
-  TextBox(sf::RenderWindow& window,sf::Vector2f pos,std::string placeholder):window(window),pos{pos},
-  display(dodot),placeholder(placeholder)
+  TextBox(sf::RenderWindow& window,sf::Vector2f pos,std::string placeholder,int val=-1):window(window),pos{pos},
+  display(dodot),placeholder(placeholder),val{val}
   {
     display.setPosition(pos);
     display.setFillColor(sf::Color(255,255,255));
     window.setKeyRepeatEnabled(false);
+    if(val!=-1)buffer=std::to_string(val);
   }
+
   int poll()
   {
     clock++;
@@ -33,7 +35,7 @@ class TextBox
         return val;
     }
     display.setFillColor(sf::Color(255,255,255));  
-    if(clock%3==0)
+    if(clock%2==0)
     {
           if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num0))buffer+='0';
        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Num1))buffer+='1';
