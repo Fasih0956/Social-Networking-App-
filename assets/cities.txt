@@ -1,0 +1,100 @@
+1:Karachi
+2:Lahore
+3:Islamabad
+4:Rawalpindi
+5:Faisalabad
+6:Multan
+7:Hyderabad
+8:Gujranwala
+9:Sialkot
+10:Quetta
+11:Peshawar
+12:Bahawalpur
+13:Sargodha
+14:Sukkur
+15:Mardan
+16:Mingora
+17:Sheikhupura
+18:Larkana
+19:Rahim Yar Khan
+20:Kasur
+21:Dera Ghazi Khan
+22:Okara
+23:Nawabshah
+24:Chiniot
+25:Kotri
+26:Jhelum
+27:Gujrat
+28:Mirpur
+29:Abbottabad
+30:Burewala
+31:Sahiwal
+32:Jacobabad
+33:Shikarpur
+34:Muzaffargarh
+35:Kohat
+36:Dera Ismail Khan
+37:Tando Adam
+38:Gojra
+39:Muridke
+40:Pakpattan
+41:Khuzdar
+42:Turbat
+43:Gilgit
+44:Hunza
+45:Swat
+46:Chitral
+47:Mansehra
+48:Nowshera
+49:Hafizabad
+50:Kharian
+51:Wazirabad
+52:Kandhkot
+53:Kamalia
+54:Haripur
+55:Toba Tek Singh
+56:Mianwali
+57:Vehari
+58:Jhang
+59:Attock
+60:Khairpur
+61:Bhakkar
+62:Daska
+63:Badin
+64:Chakwal
+65:Tando Allahyar
+66:Narowal
+67:Shahdadkot
+68:Kalat
+69:Gwadar
+70:Thatta
+71:Jamshoro
+72:Umerkot
+73:Layyah
+74:Hangu
+75:Charsadda
+76:Kohlu
+77:Zhob
+78:Lodhran
+79:Jatoi
+80:Tank
+81:Hasilpur
+82:Kot Addu
+83:Arifwala
+84:Jaranwala
+85:Samundri
+86:Hujra Shah Muqeem
+87:Fort Abbas
+88:Khanewal
+89:Rajanpur
+90:Mailsi
+91:Kamoke
+92:Pindi Bhattian
+93:Talagang
+94:Pasrur
+95:Moro
+96:Kotli
+97:Khushab
+98:Bela
+99:Skardu
+100:Muzaffarabad

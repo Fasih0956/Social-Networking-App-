@@ -1,0 +1,50 @@
+graph G {
+    size="10,10!";
+    nodesep=0.1;
+    ranksep=0.2;
+    node [shape=box, style=filled, fontname="Arial", fontsize=8];
+
+    "User_7" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="lightblue"><TR><TD>Usman Ali</TD></TR><TR><TD>Hyderabad</TD></TR></TABLE>>];
+    "User_4" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="lightgreen"><TR><TD>Saad Malik</TD></TR><TR><TD>Rawalpindi</TD></TR></TABLE>>];
+    "User_3" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Faisal Ahmed</TD></TR><TR><TD>Islamabad</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
+    "User_87" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Rania Gillani</TD></TR><TR><TD>Fort Abbas</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
+    "User_46" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Shakeel Ahmed</TD></TR><TR><TD>Chitral</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
+    "User_11" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Omar Farooq</TD></TR><TR><TD>Peshawar</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
+    "User_31" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Awais Mirza</TD></TR><TR><TD>Sahiwal</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
+    "User_96" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Mubina Ali</TD></TR><TR><TD>Kotli</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
+    "User_34" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Kashif Mahmood</TD></TR><TR><TD>Muzaffargarh</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
+    "User_44" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Faizan Anwar</TD></TR><TR><TD>Hunza</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
+    "User_36" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Raza Gillani</TD></TR><TR><TD>Dera Ismail Khan</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
+    "User_40" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Kamran Rauf</TD></TR><TR><TD>Pakpattan</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
+    "User_49" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Amir Qureshi</TD></TR><TR><TD>Hafizabad</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
+    "User_51" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Fatima Raza</TD></TR><TR><TD>Wazirabad</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
+    "User_72" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Aiman Qureshi</TD></TR><TR><TD>Umerkot</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
+    "User_96" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Mubina Ali</TD></TR><TR><TD>Kotli</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
+
+    "User_7" -- "User_3" [color=blue];
+    "User_7" -- "User_31" [color=blue];
+    "User_7" -- "User_51" [color=blue];
+    "User_7" -- "User_44" [color=blue];
+    "User_7" -- "User_40" [color=blue];
+    "User_7" -- "User_46" [color=blue];
+    "User_7" -- "User_36" [color=blue];
+    "User_7" -- "User_11" [color=blue];
+    "User_7" -- "User_34" [color=blue];
+    "User_7" -- "User_49" [color=blue];
+    "User_7" -- "User_72" [color=blue];
+    "User_7" -- "User_87" [color=blue];
+    "User_7" -- "User_96" [color=blue];
+    "User_4" -- "User_3" [color=green];
+    "User_4" -- "User_87" [color=green];
+    "User_4" -- "User_46" [color=green];
+    "User_4" -- "User_11" [color=green];
+    "User_4" -- "User_31" [color=green];
+    "User_4" -- "User_96" [color=green];
+    "User_4" -- "User_34" [color=green];
+    "User_4" -- "User_44" [color=green];
+    "User_4" -- "User_36" [color=green];
+    "User_4" -- "User_40" [color=green];
+    "User_4" -- "User_49" [color=green];
+    "User_4" -- "User_51" [color=green];
+    "User_4" -- "User_72" [color=green];
+}

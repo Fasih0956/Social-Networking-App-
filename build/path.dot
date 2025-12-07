@@ -1,0 +1,11 @@
+graph G {
+    size="10,10!";
+    nodesep=0.1;
+    ranksep=0.2;
+    node [shape=box, style=filled, fontname="Arial", fontsize=8];
+
+    "User_1" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="red"><TR><TD>Ahsan Khan</TD></TR><TR><TD>Karachi</TD></TR><TR><TD>Step 0</TD></TR></TABLE>>];
+    "User_5" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="red"><TR><TD>Hamza Tariq</TD></TR><TR><TD>Faisalabad</TD></TR><TR><TD>Step 1</TD></TR></TABLE>>];
+
+    "User_1" -- "User_5" [color=red, penwidth=3];
+}

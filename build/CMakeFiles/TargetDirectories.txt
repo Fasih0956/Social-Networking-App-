@@ -1,0 +1,3 @@
+D:/Progarammig Code/Projects/Social-Networking-App-/Social-Networking-App-/build/CMakeFiles/Social-Networking-App.dir
+D:/Progarammig Code/Projects/Social-Networking-App-/Social-Networking-App-/build/CMakeFiles/edit_cache.dir
+D:/Progarammig Code/Projects/Social-Networking-App-/Social-Networking-App-/build/CMakeFiles/rebuild_cache.dir
