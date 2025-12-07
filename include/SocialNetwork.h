@@ -11,9 +11,9 @@ public:
 
     void loadData()
     {
-        auto names = Parser::loadNames("names.txt");
-        auto cities = Parser::loadCities("cities.txt");
-        auto adj = Parser::loadAdjList("friends.txt");
+        auto names = Parser::loadNames("../assets/names.txt");
+        auto cities = Parser::loadCities("../assets/cities.txt");
+        auto adj = Parser::loadAdjList("../assets/friends.txt");
 
         // add users
         for(auto &p:names)

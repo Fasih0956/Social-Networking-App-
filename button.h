@@ -75,7 +75,7 @@ class SearchButton:public Button
   SearchButton(sf::RenderWindow&window,sf::Vector2f position):Button(window,position,0,1){}
 };
 
-class BookButton:public Button
+class BookButton:public Button 
 {
     public:
     BookButton(sf::RenderWindow&window,sf::Vector2f position):Button(window,position,2,3){}

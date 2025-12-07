@@ -2,6 +2,7 @@
 #include <map>
 #include <iostream>
 #include <queue>
+#include<algorithm>
 #include "User.h"
 using namespace std;
 
