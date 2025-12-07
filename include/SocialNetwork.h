@@ -28,27 +28,6 @@ public:
                 g.addFriendship(i,f);
     }
 
-    // Add post
-    void addPost(int userID, const string &content)
-    {
-        g.users[userID].addPost(content,nextPostID++);
-    }
-
-    void addLike(int userID, int friendID, int postIndex)
-    {
-        g.users[friendID].addLike(postIndex);
-    }
-
-    void addComment(int userID, int friendID, int postIndex, const string &comment)
-    {
-        g.users[friendID].addComment(postIndex,userID,comment);
-    }
-
-    void addFriend(int u, int v)
-    {
-        g.addFriendship(u,v);
-    }
-
     void printUserInfo(int id)
     {
         if(g.users.find(id)==g.users.end()) {cout<<"No such user\n"; return;}

@@ -15,6 +15,8 @@ void loadTextures()
     textures.push_back(sf::Texture("assets/book_hover.png"));
     textures.push_back(sf::Texture("assets/network.png"));
     textures.push_back(sf::Texture("assets/network_hover.png"));
+    textures.push_back(sf::Texture("assets/restart_button.png"));
+    textures.push_back(sf::Texture("assets/restart_button_hover.png"));
     for(auto& element:textures)sprites.push_back(sf::Sprite(element)); 
 }
 
@@ -26,6 +28,8 @@ void scaleSprites()
     sprites[3].scale({0.3,0.3});
     sprites[4].scale({0.3,0.3});
     sprites[5].scale({0.3,0.3});
+    sprites[6].scale({10,10});
+    sprites[7].scale({10,10});
 }
 
 class Button
@@ -85,4 +89,10 @@ class NetworkButton:public Button
 {
     public:
     NetworkButton(sf::RenderWindow&window,sf::Vector2f position):Button(window,position,4,5){}
+};
+
+class RestartButton:public Button
+{
+    public:
+    RestartButton(sf::RenderWindow&window,sf::Vector2f position):Button(window,position,6,7){}
 };

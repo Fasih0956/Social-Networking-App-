@@ -2,16 +2,23 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "button.h"
+#include "textbox.h"
+
+int user1id=-1;
+int user2id=-1;
+const int height=1000;
+const int width=1000;
+
 using namespace std;
 
-int StartScreen()
+int StartScreen(sf::RenderWindow& window)
 {
-    const int height=1000;
-    const int width=1000;
-    sf::RenderWindow window(sf::VideoMode({width,height}), "Social Networking Simulator");
+    if(!window.isOpen())window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
     SearchButton b1(window,{width*.4,height*.2});
     BookButton b2(window,{width*.4,height*.4});
     NetworkButton b3(window,{width*.4,height*.6});
+    TextBox b4(window,{width*.4,height*.8},"User 1 ID:");
+    TextBox b5(window,{width*.4,height*.85},"User 2 ID:");
     while (window.isOpen())
     {
         while (const std::optional event = window.pollEvent())
@@ -19,15 +26,84 @@ int StartScreen()
             if (event->is<sf::Event::Closed>())window.close();
             int ret=0;
             if(b1.poll())ret=1;
-            else if(b2.poll())ret=2;
-            else if(b3.poll())ret=3;
-            if(ret)return ret;
+            if(b2.poll())ret=2;
+            if(b3.poll())ret=3;
+            user1id=b4.poll();
+            user2id=b5.poll();
+            if(ret&&user1id!=-1&&user2id!=-1)
+            {
+                window.close();
+                return ret;
+            }
+            //sf::sleep(sf::milliseconds(30));
         }
 
         window.clear(sf::Color(128,128,128));
         b1.draw();
         b2.draw();
         b3.draw();
+        b4.draw();
+        b5.draw();
+        window.display();
+    }
+    return 0;
+}
+
+bool shortestPath(sf::RenderWindow& window)
+{
+    window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
+    RestartButton b1(window,{width*.1,height*.1});
+    while (window.isOpen())
+    {
+        while (const std::optional event = window.pollEvent())
+        {
+            if (event->is<sf::Event::Closed>())window.close();
+            if(b1.poll())return 1;
+            //sf::sleep(sf::milliseconds(30));
+        }
+
+        window.clear(sf::Color(128,128,128));
+        b1.draw();
+        window.display();
+    }
+    return 0;
+}
+
+bool userInfo(sf::RenderWindow& window)
+{
+    window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
+    RestartButton b1(window,{width*.1,height*.1});
+    while (window.isOpen())
+    {
+        while (const std::optional event = window.pollEvent())
+        {
+            if (event->is<sf::Event::Closed>())window.close();
+            if(b1.poll())return 1;
+            //sf::sleep(sf::milliseconds(30));
+        }
+
+        window.clear(sf::Color(128,128,128));
+        b1.draw();
+        window.display();
+    }
+    return 0;
+}
+
+bool mutualFriends(sf::RenderWindow& window)
+{
+    window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
+    RestartButton b1(window,{width*.1,height*.1});
+    while (window.isOpen())
+    {
+        while (const std::optional event = window.pollEvent())
+        {
+            if (event->is<sf::Event::Closed>())window.close();
+            if(b1.poll())return 1;
+            //sf::sleep(sf::milliseconds(30));
+        }
+
+        window.clear(sf::Color(128,128,128));
+        b1.draw();
         window.display();
     }
     return 0;
@@ -35,13 +111,18 @@ int StartScreen()
 
 int main()
 {
+    const int height=1000;
+    const int width=1000;
+    sf::RenderWindow window(sf::VideoMode({width,height}), "Social Networking Simulator");
     loadTextures();
     scaleSprites();
     while(true)
     {
-    int option=StartScreen();
+    int option=StartScreen(window);
     if(!option)return 0;
-    cout<<"The option is "<<option<<endl;
+    if(option==1)if(!shortestPath(window))return 0;
+    if(option==2)if(!userInfo(window))return 0;
+    if(option==3)if(!mutualFriends(window))return 0;
     }
     return 0;
 }
