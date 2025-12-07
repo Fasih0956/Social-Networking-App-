@@ -14,6 +14,9 @@ using namespace std;
 
 int StartScreen(sf::RenderWindow& window)
 {
+    string title="Social Networking Simulator";
+    sf::Text header(dodot,title,50);
+    header.setPosition({width*0.1,0});
     if(!window.isOpen())window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
     SearchButton b1(window,{width*.4,height*.2});
     BookButton b2(window,{width*.4,height*.4});
@@ -33,7 +36,7 @@ int StartScreen(sf::RenderWindow& window)
             user2id=b5.poll();
             if(ret&&user1id!=-1&&user2id!=-1)
             {
-                window.close();
+                //window.close();
                 return ret;
             }
             //sf::sleep(sf::milliseconds(30));
@@ -45,6 +48,7 @@ int StartScreen(sf::RenderWindow& window)
         b3.draw();
         b4.draw();
         b5.draw();
+        window.draw(header);
         window.display();
     }
     return 0;
@@ -52,7 +56,11 @@ int StartScreen(sf::RenderWindow& window)
 
 bool shortestPath(sf::RenderWindow& window)
 {
-    window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
+    if(!window.isOpen())window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
+    string title="Shortest Path From User "+to_string(user1id)+" to User "+to_string(user2id);
+    sf::Text header(dodot,title,20);
+    header.setPosition({width*0.2,0});
+    header.setFillColor(sf::Color(0,0,0));
     RestartButton b1(window,{0,0});
     sf::Sprite& graph=sprites[8];
     graph.setPosition({width*.2,height*.3});
@@ -68,6 +76,7 @@ bool shortestPath(sf::RenderWindow& window)
         window.clear(sf::Color(255,255,255));
         b1.draw();
         window.draw(graph);
+        window.draw(header);
         window.display();
     }
     return 0;
@@ -75,12 +84,16 @@ bool shortestPath(sf::RenderWindow& window)
 
 bool userInfo(sf::RenderWindow& window,string stats)
 {
+    string title="Details and 2 traversal connections for User "+to_string(user1id);
+    sf::Text header(dodot,title,20);
+    header.setPosition({width*0.2,0});
+    header.setFillColor(sf::Color(0,0,0));
     sf::Text userInfo(dodot,stats);
     userInfo.scale({0.5,1.5});
-    userInfo.setPosition({width*0.3,0});
+    userInfo.setPosition({width*0.5,height*0.9});
     userInfo.setFillColor(sf::Color(134,12,49));
     sf::Sprite& graph=sprites[8];
-    window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
+    if(!window.isOpen())window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
     RestartButton b1(window,{0,0});
     while (window.isOpen())
     {
@@ -95,6 +108,7 @@ bool userInfo(sf::RenderWindow& window,string stats)
         b1.draw();
         window.draw(userInfo);
         window.draw(graph);
+        window.draw(header);
         window.display();
     }
     return 0;
@@ -102,7 +116,11 @@ bool userInfo(sf::RenderWindow& window,string stats)
 
 bool mutualFriends(sf::RenderWindow& window)
 {
-    window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
+    if(!window.isOpen())window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
+    string title="Mutual Connection graph between User "+to_string(user1id)+" and User "+to_string(user2id);
+    sf::Text header(dodot,title,20);
+    header.setPosition({width*0.2,0});
+    header.setFillColor(sf::Color(0,0,0));
     RestartButton b1(window,{0,0});
     sf::Sprite& graph=sprites[8];
     graph.setPosition({width*.2,height*.3});
@@ -118,6 +136,7 @@ bool mutualFriends(sf::RenderWindow& window)
         window.clear(sf::Color(255,255,255));
         b1.draw();
         window.draw(graph);
+        window.draw(header);
         window.display();
     }
     return 0;
@@ -127,7 +146,8 @@ int main()
 {
     const int height=1000;
     const int width=1000;
-    sf::RenderWindow window(sf::VideoMode({width,height}), "Social Networking Simulator");
+    sf::RenderWindow window(sf::VideoMode({width,height}), "Social Network Simulator");
+    window.setVerticalSyncEnabled(true);
     loadTextures();
     scaleSprites();
     while(true)

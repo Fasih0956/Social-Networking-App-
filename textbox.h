@@ -55,7 +55,6 @@ class TextBox
     if(buffer.size()>3)buffer.pop_back();
     if(buffer.size())val=std::stoi(buffer.c_str());
     if(val<=0||val>100)val=-1;
-    std::cout<<val<<std::endl;
     display.setString(placeholder+buffer);
     return val;
   }
