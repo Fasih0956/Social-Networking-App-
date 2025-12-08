@@ -4,29 +4,10 @@ graph G {
     ranksep=0.2;
     node [shape=box, style=filled, fontname="Arial", fontsize=8];
 
-    "User_1" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="lightblue"><TR><TD>Ahsan Khan</TD></TR><TR><TD>Karachi</TD></TR></TABLE>>];
-    "User_76" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="lightgreen"><TR><TD>Alina Rafiq</TD></TR><TR><TD>Kohlu</TD></TR></TABLE>>];
-    "User_13" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Tahir Iqbal</TD></TR><TR><TD>Sargodha</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
-    "User_43" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Zubair Tariq</TD></TR><TR><TD>Gilgit</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
-    "User_53" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Hira Ahmed</TD></TR><TR><TD>Kamalia</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
-    "User_47" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Imtiaz Noor</TD></TR><TR><TD>Mansehra</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
-    "User_86" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Rehma Siddiq</TD></TR><TR><TD>Hujra Shah Muqeem</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
-    "User_87" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Rania Gillani</TD></TR><TR><TD>Fort Abbas</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
-    "User_95" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="yellow"><TR><TD>Faiza Anwar</TD></TR><TR><TD>Moro</TD></TR><TR><TD>Mutual Friend</TD></TR></TABLE>>];
+    "User_32" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="red"><TR><TD>Zohaib Khan</TD></TR><TR><TD>Jacobabad</TD></TR><TR><TD>Step 0</TD></TR></TABLE>>];
+    "User_12" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="lightblue"><TR><TD>Abdul Rehman</TD></TR><TR><TD>Bahawalpur</TD></TR><TR><TD>Step 1</TD></TR></TABLE>>];
+    "User_75" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="red"><TR><TD>Sadia Younis</TD></TR><TR><TD>Charsadda</TD></TR><TR><TD>Step 2</TD></TR></TABLE>>];
 
-    "User_1" -- "User_86" [color=blue];
-    "User_1" -- "User_76" [color=gray];
-    "User_1" -- "User_43" [color=blue];
-    "User_1" -- "User_13" [color=blue];
-    "User_1" -- "User_47" [color=blue];
-    "User_1" -- "User_53" [color=blue];
-    "User_1" -- "User_87" [color=blue];
-    "User_1" -- "User_95" [color=blue];
-    "User_76" -- "User_13" [color=green];
-    "User_76" -- "User_43" [color=green];
-    "User_76" -- "User_53" [color=green];
-    "User_76" -- "User_47" [color=green];
-    "User_76" -- "User_86" [color=green];
-    "User_76" -- "User_87" [color=green];
-    "User_76" -- "User_95" [color=green];
+    "User_32" -- "User_12" [color=red, penwidth=3];
+    "User_12" -- "User_75" [color=red, penwidth=3];
 }

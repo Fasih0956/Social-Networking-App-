@@ -1,3 +1,5 @@
 .vscode/
 *.exe
 build/
+*/graph.dot
+*/graph.png

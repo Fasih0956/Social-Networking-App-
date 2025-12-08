@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 20)
 add_definitions(-DSFML_STATIC)
 
 # --- SFML Path Configuration ---
-set(SFML_DIR "C:/Users/Raedo/Documents/dev/compilers/sfml") # insert path
+set(SFML_DIR "") # insert path
 set(SFML_INCLUDE_DIR "${SFML_DIR}/include")
 set(SFML_LIBRARY_DIR "${SFML_DIR}/lib")
 
@@ -35,7 +35,7 @@ if (WIN32)
 endif()
 
 
-add_executable(Social-Networking-App gui.cpp) #add win32 in the middle if no-console
+add_executable(Social-Networking-App main.cpp) #add win32 in the middle if no-console
 
 target_link_libraries(Social-Networking-App
     sfml-graphics-s
@@ -49,3 +49,5 @@ target_link_libraries(Social-Networking-App
     
     ${SFML_SYSTEM_DEPS}
 )
+
+#ideal: 32 75

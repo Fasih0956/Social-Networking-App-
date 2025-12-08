@@ -1,8 +1,8 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "button.h"
-#include "textbox.h"
+#include "include/button.h"
+#include "include/textbox.h"
 #include "include/includes.h"
 #include "include/SocialNetwork.h"
 
