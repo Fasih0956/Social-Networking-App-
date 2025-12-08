@@ -47,7 +47,7 @@ public:
             int u = q.front();
             q.pop();
             
-            if (distance[u] >= 2) continue; // Stop at 2 traversals
+            if (distance[u] == 1) continue; // Stop at 2 traversals
 
             for (int v : g.users[u].friends) {
                 if (distance.find(v) == distance.end()) {

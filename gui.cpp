@@ -95,8 +95,8 @@ bool userInfo(sf::RenderWindow& window,string stats)
     userInfo.setPosition({width*0.5,height*0.9});
     userInfo.setFillColor(sf::Color(134,12,49));
     sf::Sprite graph(textures[8]);
-    graph.setPosition({width*.4,height*.3});
-    graph.setScale({0.4,0.4});
+    graph.setPosition({width*.2,height*.2});
+    graph.setScale({0.5,0.5});
     if(!window.isOpen())window.create(sf::VideoMode({width,height}), "Social Networking Simulator");
     RestartButton b1(window,{0,0});
     while (window.isOpen())
@@ -166,18 +166,16 @@ int main()
         createShortestPath(sn.g,user1id,user2id);
         bool success=textures[8].loadFromFile("assets/graph.png");
         textures[8].setSmooth(true);
-        if(!success)cout<<"texture not loaded";
-        else cout<<"texture loaded";
+        if(!success)cout<<"texture not loaded\n";
         if(!shortestPath(window))return 0;
     }
     if(option==2)
     {
-        //createGraph(sn.g,user1id);
+        createGraph(sn.g,user1id);
         string stats=generateStatistics(sn.g,user1id);
         bool success=textures[8].loadFromFile("assets/graph.png");
         textures[8].setSmooth(true);
-        if(!success)cout<<"texture not loaded";
-        else cout<<"texture loaded";
+        if(!success)cout<<"texture not loaded\n";
         if(!userInfo(window,stats))return 0;
     }
     if(option==3)
@@ -185,8 +183,7 @@ int main()
         mutualConnectionGraph(sn.g,user1id,user2id);
         bool success=textures[8].loadFromFile("assets/graph.png");
         textures[8].setSmooth(true);
-        if(!success)cout<<"texture not loaded";
-        else cout<<"texture loaded";
+        if(!success)cout<<"texture not loaded\n";
         if(!mutualFriends(window))return 0;
     }
     }
