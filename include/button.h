@@ -6,6 +6,7 @@
 
 std::vector<sf::Sprite> sprites;
 std::vector<sf::Texture> textures;
+sf::SoundBuffer soundb("assets/click.wav");
 
 void loadTextures()
 {
@@ -36,6 +37,7 @@ void scaleSprites()
 
 class Button
 {
+    sf::Sound click;
     sf::Vector2f position;
     sf::RenderWindow& window;
     bool hovered=false;
@@ -43,7 +45,7 @@ class Button
     sf::Sprite* button_hover;
     public:
     Button(sf::RenderWindow&window,sf::Vector2f position,int button_index,int button_hover_index):
-    position{position},window{window}
+    position{position},window{window},click{soundb}
     {
         button=new sf::Sprite(sprites[button_index]);
         button->setPosition(position);
@@ -57,7 +59,12 @@ class Button
         auto mouse=sf::Mouse::getPosition(window);
         if(buttonBounds.contains({(float)mouse.x,(float)mouse.y}))hovered=true;
         else hovered=false;
-      if(hovered&&sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))return true;
+      if(hovered&&sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+      {
+        click.play();
+        sf::sleep(sf::milliseconds(290));
+        return true;
+      }
       return false;
     }
 

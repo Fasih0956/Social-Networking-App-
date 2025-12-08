@@ -3,10 +3,9 @@ project(Social-Networking-App)
 
 set(CMAKE_CXX_STANDARD 20)
 
-# CRUCIAL: Tells SFML headers to prepare for static linking
 add_definitions(-DSFML_STATIC)
 
-# --- SFML Path Configuration ---
+
 set(SFML_DIR "") # insert path
 set(SFML_INCLUDE_DIR "${SFML_DIR}/include")
 set(SFML_LIBRARY_DIR "${SFML_DIR}/lib")
@@ -24,7 +23,7 @@ set(SFML_EXTERNAL_DEPS
     freetype
 )
 
-# 2. Windows System Dependencies 
+
 if (WIN32)
     set(SFML_SYSTEM_DEPS
         ws2_32

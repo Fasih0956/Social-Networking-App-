@@ -11,9 +11,9 @@ class Parser
 {
 public:
 
-    // ------------------------------------------
+    
     // Load ID -> Name mapping
-    // ------------------------------------------
+    
     static map<int,string> loadNames(const string &filename)
     {
         map<int,string> names;
@@ -42,9 +42,9 @@ public:
         return names;
     }
 
-    // ------------------------------------------
+    
     // Load ID -> City mapping
-    // ------------------------------------------
+    
     static map<int,string> loadCities(const string &filename)
     {
         map<int,string> cities;
@@ -73,9 +73,9 @@ public:
         return cities;
     }
 
-    // ------------------------------------------
+    
     // Load adjacency list from friends.txt
-    // ------------------------------------------
+    
     static vector<vector<int>> loadAdjList(const string &filename)
     {
         vector<vector<int>> adj(101);
@@ -106,9 +106,7 @@ public:
         return adj;
     }
 
-    // ------------------------------------------
-    // Convert adjacency list → adjacency matrix
-    // ------------------------------------------
+    // Convert adjacency list -> adjacency matrix
     static vector<vector<int>> convertToMatrix(const vector<vector<int>> &adj)
     {
         vector<vector<int>> matrix(101, vector<int>(101, 0));

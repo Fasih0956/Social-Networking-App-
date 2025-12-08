@@ -4,10 +4,10 @@ graph G {
     ranksep=0.2;
     node [shape=box, style=filled, fontname="Arial", fontsize=8];
 
-    "User_32" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="red"><TR><TD>Zohaib Khan</TD></TR><TR><TD>Jacobabad</TD></TR><TR><TD>Step 0</TD></TR></TABLE>>];
-    "User_12" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="lightblue"><TR><TD>Abdul Rehman</TD></TR><TR><TD>Bahawalpur</TD></TR><TR><TD>Step 1</TD></TR></TABLE>>];
-    "User_75" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="red"><TR><TD>Sadia Younis</TD></TR><TR><TD>Charsadda</TD></TR><TR><TD>Step 2</TD></TR></TABLE>>];
+    "User_12" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="red"><TR><TD>Abdul Rehman</TD></TR><TR><TD>Bahawalpur</TD></TR><TR><TD>Step 0</TD></TR></TABLE>>];
+    "User_7" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="lightblue"><TR><TD>Usman Ali</TD></TR><TR><TD>Hyderabad</TD></TR><TR><TD>Step 1</TD></TR></TABLE>>];
+    "User_11" [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="2" BGCOLOR="red"><TR><TD>Omar Farooq</TD></TR><TR><TD>Peshawar</TD></TR><TR><TD>Step 2</TD></TR></TABLE>>];
 
-    "User_32" -- "User_12" [color=red, penwidth=3];
-    "User_12" -- "User_75" [color=red, penwidth=3];
+    "User_12" -- "User_7" [color=red, penwidth=3];
+    "User_7" -- "User_11" [color=red, penwidth=3];
 }
